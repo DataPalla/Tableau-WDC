@@ -1,36 +1,4 @@
-Skip to content
-Search or jump to…
 
-Pull requests
-Issues
-Marketplace
-Explore
- 
-@DataPalla 
-Learn Git and GitHub without any code!
-Using the Hello World guide, you’ll start a branch, write comments, and open a pull request.
-
-
-andre347
-/
-covid-wdc
-1
-10
-Code
-Issues
-Pull requests
-Actions
-Projects
-Wiki
-Security
-Insights
-covid-wdc/public/app.js /
-@andre347
-andre347 Completed for YouTube video
-Latest commit 8a0319b on Aug 3
- History
- 1 contributor
-80 lines (71 sloc)  1.97 KB
   
 console.log("This is working!");
 
@@ -40,32 +8,68 @@ console.log("This is working!");
   myConnector.getSchema = function (schemaCallback) {
     const covidCols = [
       {
-        id: "Date_of_report",
-        dataType: tableau.dataTypeEnum.date,
-      },
-      {
-        id: "Municipality_code",
+        id: "provider_id",
         dataType: tableau.dataTypeEnum.string,
       },
       {
-        id: "Municipality_name",
+        id: "hospital_name",
         dataType: tableau.dataTypeEnum.string,
       },
       {
-        id: "Province",
+        id: "address",
         dataType: tableau.dataTypeEnum.string,
       },
       {
-        id: "Total_reported",
+        id: "city",
+        dataType: tableau.dataTypeEnum.string,
+      },
+      {
+        id: "state",
+        dataType: tableau.dataTypeEnum.string,
+      },
+      {
+        id: "zip_code",
         dataType: tableau.dataTypeEnum.int,
       },
       {
-        id: "Hospital_admission",
+        id: "county_name",
+        dataType: tableau.dataTypeEnum.string,
+      },
+      {
+        id: "phone_number",
         dataType: tableau.dataTypeEnum.int,
       },
       {
-        id: "Deceased",
+        id: "hospital_type",
+        dataType: tableau.dataTypeEnum.string,
+      },
+      {
+        id: "hospital_ownership",
+        dataType: tableau.dataTypeEnum.string,
+      },
+      {
+        id: "emergency_services",
+        dataType: tableau.dataTypeEnum.string,
+      },
+      {
+        id: "meets_criteria_for_meaningful_use_of_ehrs",
+        dataType: tableau.dataTypeEnum.string,
+      },
+      {
+        id: "hospital_overall_rating",
         dataType: tableau.dataTypeEnum.int,
+      },
+      {
+        id: "hospital_overall_rating_footnote",
+        dataType: tableau.dataTypeEnum.string,
+      },
+      {
+        id: "mortality_national_comparison",
+        dataType: tableau.dataTypeEnum.string,
+      },
+      {
+        id: "mortality_national_comparison_footnote",
+        dataType: tableau.dataTypeEnum.string,
       },
     ];
 
@@ -83,19 +87,29 @@ console.log("This is working!");
     var i = 0;
 
     $.getJSON(
-      "https://data.rivm.nl/covid-19/COVID-19_aantallen_gemeente_cumulatief.json",
+      "https://data.medicare.gov/resource/xubh-q36u.json",
       function (resp) {
         // Iterate over the JSON object
         for (i = 0, len = resp.length; i < len; i++) {
           tableData.push({
-            Date_of_report: resp[i].Date_of_report,
-            Municipality_code: resp[i].Municipality_code,
-            Municipality_name: resp[i].Municipality_name,
-            Province: resp[i].Province,
-            Total_reported: resp[i].Total_reported,
-            Hospital_admission: resp[i].Hospital_admission,
-            Deceased: resp[i].Deceased,
-          });
+            provider_id: resp[i].provider_id,
+            hospital_name: resp[i].hospital_name,
+            address: resp[i].address,
+            city: resp[i].city,
+            state: resp[i].state,
+            zip_code: resp[i].zip_code,
+            county_name: resp[i].county_name,
+            phone_number: resp[i].phone_number,
+            hospital_type: resp[i].hospital_type,
+            hospital_ownership: resp[i].hospital_ownership,
+            emergency_services: resp[i].emergency_services,
+            meets_criteria_for_meaningful_use_of_ehrs: resp[i].meets_criteria_for_meaningful_use_of_ehrs,
+            hospital_overall_rating: resp[i].hospital_overall_rating,
+            hospital_overall_rating_footnote: resp[i].hospital_overall_rating_footnote,
+            mortality_national_comparison: resp[i].mortality_national_comparison,
+            mortality_national_comparison_footnote: resp[i].mortality_national_comparison_footnote,
+         
+         });
         }
         table.appendRows(tableData);
         doneCallback();
@@ -112,15 +126,3 @@ function getData() {
   tableau.connectionName = "Dutch Corona Numbers";
   tableau.submit();
 }
-© 2020 GitHub, Inc.
-Terms
-Privacy
-Security
-Status
-Help
-Contact GitHub
-Pricing
-API
-Training
-Blog
-About
