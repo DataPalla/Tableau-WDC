@@ -72,7 +72,7 @@ console.log("This is working!");
         dataType: tableau.dataTypeEnum.string,
       },
       {
-        id: "location",
+        id: "geocoded_column",
         dataType: tableau.dataTypeEnum.string,
       },
     ];
