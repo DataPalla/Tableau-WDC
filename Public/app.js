@@ -6,7 +6,7 @@ console.log("This is working!");
   var myConnector = tableau.makeConnector();
 
   myConnector.getSchema = function (schemaCallback) {
-    const covidCols = [
+    const columns = [
       {
         id: "provider_id",
         dataType: tableau.dataTypeEnum.string,
@@ -73,13 +73,13 @@ console.log("This is working!");
       },
     ];
 
-    let covidTableSchema = {
-      id: "RIVM",
-      alias: "Dutch Corona Cases since start",
-      columns: covidCols,
+    let schema = {
+      id: "HCD",
+      alias: "Hospital Compare Data",
+      columns: columns,
     };
 
-    schemaCallback([covidTableSchema]);
+    schemaCallback([schema]);
   };
 
   myConnector.getData = function (table, doneCallback) {
@@ -123,6 +123,6 @@ console.log("This is working!");
 document.querySelector("#getData").addEventListener("click", getData);
 
 function getData() {
-  tableau.connectionName = "Dutch Corona Numbers";
+  tableau.connectionName = "Hospital Compare Data";
   tableau.submit();
 }
