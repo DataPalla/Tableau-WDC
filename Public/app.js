@@ -71,6 +71,10 @@ console.log("This is working!");
         id: "mortality_national_comparison_footnote",
         dataType: tableau.dataTypeEnum.string,
       },
+      {
+        id: "location",
+        dataType: tableau.dataTypeEnum.string,
+      },
     ];
 
     let schema = {
