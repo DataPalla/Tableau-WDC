@@ -91,7 +91,7 @@ console.log("This is working!");
     var i = 0;
 
     $.getJSON(
-      "https://data.medicare.gov/resource/xubh-q36u.csv",
+      "https://data.medicare.gov/resource/xubh-q36u.json",
       function (resp) {
         // Iterate over the JSON object
         for (i = 0, len = resp.length; i < len; i++) {
