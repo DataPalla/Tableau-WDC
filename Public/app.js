@@ -73,7 +73,7 @@ console.log("This is working!");
       },
       {
         id: "geocoded_column",
-        dataType: tableau.dataTypeEnum.point,
+        dataType: tableau.dataTypeEnum.int,
       },
     ];
 
@@ -112,6 +112,7 @@ console.log("This is working!");
             hospital_overall_rating_footnote: resp[i].hospital_overall_rating_footnote,
             mortality_national_comparison: resp[i].mortality_national_comparison,
             mortality_national_comparison_footnote: resp[i].mortality_national_comparison_footnote,
+            geocoded_column: resp[i].geocoded_column,
          
          });
         }
