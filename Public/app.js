@@ -114,9 +114,9 @@ function readCSVFile(response) {
   var lines = response.split("\n");
 
   for (var i = 0; i < lines.length; i++) {
-     var _firstColumn = lines[i].split(";")[1];     //First column (Split on the separator!)
+     var _firstColumn = lines[i].split(",");     //First column (Split on the separator!)
      //Do your stuff
-     for (i = 0, len = lines.length; i < len; i++) {
+     
       tableData.push({
         provider_id: _firstColumn.provider_id,
         hospital_name: _firstColumn.hospital_name,
@@ -137,5 +137,5 @@ function readCSVFile(response) {
         geocoded_column: _firstColumn.geocoded_column,
      });
   }
-}
+
 };
