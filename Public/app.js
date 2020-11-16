@@ -92,33 +92,12 @@ console.log("This is working!");
 
     $.ajax({
       url:"https://data.medicare.gov/resource/xubh-q36u.csv",
-       function (resp) {
-        // Iterate over the JSON object
-        for (i = 0, len = resp.length; i < len; i++) {
-          tableData.push({
-            provider_id: resp[i].provider_id,
-            hospital_name: resp[i].hospital_name,
-            address: resp[i].address,
-            city: resp[i].city,
-            state: resp[i].state,
-            zip_code: resp[i].zip_code,
-            county_name: resp[i].county_name,
-            phone_number: resp[i].phone_number,
-            hospital_type: resp[i].hospital_type,
-            hospital_ownership: resp[i].hospital_ownership,
-            emergency_services: resp[i].emergency_services,
-            meets_criteria_for_meaningful_use_of_ehrs: resp[i].meets_criteria_for_meaningful_use_of_ehrs,
-            hospital_overall_rating: resp[i].hospital_overall_rating,
-            hospital_overall_rating_footnote: resp[i].hospital_overall_rating_footnote,
-            mortality_national_comparison: resp[i].mortality_national_comparison,
-            mortality_national_comparison_footnote: resp[i].mortality_national_comparison_footnote,
-            geocoded_column: resp[i].geocoded_column,
-         });
+      success: function (resp) {
+         readCSVFile(resp);
         }
-        table.appendRows(tableData);
+      });
+    table.appendRows(tableData);
         doneCallback();
-      }
-    );
   };
 
   tableau.registerConnector(myConnector);
@@ -130,3 +109,33 @@ function getData() {
   tableau.connectionName = "Hospital Compare Data";
   tableau.submit();
 }
+
+function readCSVFile(response) {
+  var lines = response.split("\n");
+
+  for (var i = 0; i < lines.length; i++) {
+     var _firstColumn = lines[i].split(";")[1];     //First column (Split on the separator!)
+     //Do your stuff
+     for (i = 0, len = lines.length; i < len; i++) {
+      tableData.push({
+        provider_id: _firstColumn.provider_id,
+        hospital_name: _firstColumn.hospital_name,
+        address: _firstColumn.address,
+        city: _firstColumn.city,
+        state: _firstColumn.state,
+        zip_code: _firstColumn.zip_code,
+        county_name: _firstColumn.county_name,
+        phone_number: _firstColumn.phone_number,
+        hospital_type: _firstColumn.hospital_type,
+        hospital_ownership: _firstColumn.hospital_ownership,
+        emergency_services: _firstColumn.emergency_services,
+        meets_criteria_for_meaningful_use_of_ehrs: _firstColumn.meets_criteria_for_meaningful_use_of_ehrs,
+        hospital_overall_rating: _firstColumn.hospital_overall_rating,
+        hospital_overall_rating_footnote: _firstColumn.hospital_overall_rating_footnote,
+        mortality_national_comparison: _firstColumn.mortality_national_comparison,
+        mortality_national_comparison_footnote: _firstColumn.mortality_national_comparison_footnote,
+        geocoded_column: _firstColumn.geocoded_column,
+     });
+  }
+}
+};
