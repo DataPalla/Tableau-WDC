@@ -87,16 +87,16 @@ console.log("This is working!");
   };
 
   myConnector.getData = function (table, doneCallback) {
-    
+    let td ;
     var i = 0;
 
     $.ajax({
       url:"https://data.medicare.gov/resource/xubh-q36u.csv",
       success: function (resp) {
-        let tabledata = readCSVFile(resp);
+        td = readCSVFile(resp);
         }
       });
-    table.appendRows(tableData);
+    table.appendRows(td);
         doneCallback();
   };
 
