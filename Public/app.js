@@ -113,7 +113,6 @@ console.log("This is working!");
             mortality_national_comparison: resp[i].mortality_national_comparison,
             mortality_national_comparison_footnote: resp[i].mortality_national_comparison_footnote,
             geocoded_column: resp[i].geocoded_column,
-         
          });
         }
         table.appendRows(tableData);
