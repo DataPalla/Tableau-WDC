@@ -116,26 +116,25 @@ function readCSVFile(response) {
   for (var i = 0; i < lines.length; i++) {
      var _firstColumn = lines[i].split(",");     //First column (Split on the separator!)
      //Do your stuff
-     
       tableData.push({
-        provider_id: _firstColumn.provider_id,
-        hospital_name: _firstColumn.hospital_name,
-        address: _firstColumn.address,
-        city: _firstColumn.city,
-        state: _firstColumn.state,
-        zip_code: _firstColumn.zip_code,
-        county_name: _firstColumn.county_name,
-        phone_number: _firstColumn.phone_number,
-        hospital_type: _firstColumn.hospital_type,
-        hospital_ownership: _firstColumn.hospital_ownership,
-        emergency_services: _firstColumn.emergency_services,
-        meets_criteria_for_meaningful_use_of_ehrs: _firstColumn.meets_criteria_for_meaningful_use_of_ehrs,
-        hospital_overall_rating: _firstColumn.hospital_overall_rating,
-        hospital_overall_rating_footnote: _firstColumn.hospital_overall_rating_footnote,
-        mortality_national_comparison: _firstColumn.mortality_national_comparison,
-        mortality_national_comparison_footnote: _firstColumn.mortality_national_comparison_footnote,
-        geocoded_column: _firstColumn.geocoded_column,
-     });
+        provider_id: _firstColumn[0],
+        hospital_name: _firstColumn[1],
+        address: _firstColumn[2],
+        city: _firstColumn[3],
+        state: _firstColumn[4],
+        zip_code: _firstColumn[5],
+        county_name: _firstColumn[6],
+        phone_number: _firstColumn[7],
+        hospital_type: _firstColumn[8],
+        hospital_ownership: _firstColumn[9],
+        emergency_services: _firstColumn[10],
+        meets_criteria_for_meaningful_use_of_ehrs: _firstColumn[11],
+        hospital_overall_rating: _firstColumn[12],
+        hospital_overall_rating_footnote: _firstColumn[13],
+        mortality_national_comparison: _firstColumn[14],
+        mortality_national_comparison_footnote: _firstColumn[15],
+        geocoded_column: _firstColumn[28],
+     });  
   }
   return tableData;
 };
