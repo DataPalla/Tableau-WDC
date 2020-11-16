@@ -87,13 +87,13 @@ console.log("This is working!");
   };
 
   myConnector.getData = function (table, doneCallback) {
-    let tableData = [];
+    
     var i = 0;
 
     $.ajax({
       url:"https://data.medicare.gov/resource/xubh-q36u.csv",
       success: function (resp) {
-         readCSVFile(resp);
+        var tabledata = readCSVFile(resp);
         }
       });
     table.appendRows(tableData);
@@ -112,7 +112,7 @@ function getData() {
 
 function readCSVFile(response) {
   var lines = response.split("\n");
-
+  let tableData = [];
   for (var i = 0; i < lines.length; i++) {
      var _firstColumn = lines[i].split(",");     //First column (Split on the separator!)
      //Do your stuff
@@ -137,5 +137,5 @@ function readCSVFile(response) {
         geocoded_column: _firstColumn.geocoded_column,
      });
   }
-
+  return tableData;
 };
