@@ -90,9 +90,9 @@ console.log("This is working!");
     let tableData = [];
     var i = 0;
 
-    $.getJSON(
-      "https://data.medicare.gov/resource/xubh-q36u.json",
-      function (resp) {
+    $.ajax({
+      url:"https://data.medicare.gov/resource/xubh-q36u.csv",
+       function (resp) {
         // Iterate over the JSON object
         for (i = 0, len = resp.length; i < len; i++) {
           tableData.push({
