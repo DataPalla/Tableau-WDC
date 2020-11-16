@@ -93,7 +93,7 @@ console.log("This is working!");
     $.ajax({
       url:"https://data.medicare.gov/resource/xubh-q36u.csv",
       success: function (resp) {
-        var tabledata = readCSVFile(resp);
+        let tabledata = readCSVFile(resp);
         }
       });
     table.appendRows(tableData);
