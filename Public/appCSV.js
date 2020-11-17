@@ -112,7 +112,7 @@ function readCSVFile(response) {
   var table;
   var lines = response.split("\n");
   let tableData = [];
-  for (var i = 0; i < lines.length; i++) {
+  for (var i = 1; i < lines.length; i++) {
      var _firstColumn = lines[i].split(",");     //First column (Split on the separator!)
      //Do your stuff
      for( var j =0; j < _firstColumn.length; j++ ){
