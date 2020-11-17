@@ -87,17 +87,14 @@ console.log("This is working!");
   };
 
   myConnector.getData = function (table, doneCallback) {
-    let td ;
-    var i = 0;
-
     $.ajax({
       url:"https://data.medicare.gov/resource/xubh-q36u.csv",
       success: function (resp) {
-        td = readCSVFile(resp);
+        table = readCSVFile(resp);
+        doneCallback();
         }
       });
-    table.appendRows(td);
-        doneCallback();
+      
   };
 
   tableau.registerConnector(myConnector);
@@ -111,6 +108,7 @@ function getData() {
 }
 
 function readCSVFile(response) {
+  var table;
   var lines = response.split("\n");
   let tableData = [];
   for (var i = 0; i < lines.length; i++) {
@@ -136,5 +134,6 @@ function readCSVFile(response) {
         geocoded_column: _firstColumn[28],
      });  
   }
-  return tableData;
+  table.appendRows(td);
+  return table;
 };
