@@ -90,7 +90,8 @@ console.log("This is working!");
     $.ajax({
       url:"https://data.medicare.gov/resource/xubh-q36u.csv",
       success: function (resp) {
-        table = readCSVFile(resp);
+        td = readCSVFile(resp);
+        table.appendRows(td);
         doneCallback();
         }
       });
@@ -134,6 +135,6 @@ function readCSVFile(response) {
         geocoded_column: _firstColumn[28],
      });  
   }
-  table.appendRows(td);
-  return table;
+  
+  return tableData;
 };
