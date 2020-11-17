@@ -73,7 +73,7 @@ console.log("This is working!");
       },
       {
         id: "geocoded_column",
-        dataType: tableau.dataTypeEnum.int,
+        dataType: tableau.dataTypeEnum.string,
       },
     ];
 
@@ -116,23 +116,23 @@ function readCSVFile(response) {
      var _firstColumn = lines[i].split(",");     //First column (Split on the separator!)
      //Do your stuff
       tableData.push({
-        provider_id: _firstColumn[0].replace(/\"/g, ""),
-        hospital_name: _firstColumn[1],
-        address: _firstColumn[2],
-        city: _firstColumn[3],
-        state: _firstColumn[4],
-        zip_code: _firstColumn[5],
-        county_name: _firstColumn[6],
-        phone_number: _firstColumn[7],
-        hospital_type: _firstColumn[8],
-        hospital_ownership: _firstColumn[9],
-        emergency_services: _firstColumn[10],
-        meets_criteria_for_meaningful_use_of_ehrs: _firstColumn[11],
-        hospital_overall_rating: _firstColumn[12],
-        hospital_overall_rating_footnote: _firstColumn[13],
-        mortality_national_comparison: _firstColumn[14],
-        mortality_national_comparison_footnote: _firstColumn[15],
-        geocoded_column: _firstColumn[28],
+        provider_id: _firstColumn[0].replace(/\"/g, "").trim(),
+        hospital_name: _firstColumn[1].replace(/\"/g, "").trim(),
+        address: _firstColumn[2].replace(/\"/g, "").trim(),
+        city: _firstColumn[3].replace(/\"/g, "").trim(),
+        state: _firstColumn[4].replace(/\"/g, "").trim(),
+        zip_code: _firstColumn[5].replace(/\"/g, "").trim(),
+        county_name: _firstColumn[6].replace(/\"/g, "").trim(),
+        phone_number: _firstColumn[7].replace(/\"/g, "").trim(),
+        hospital_type: _firstColumn[8].replace(/\"/g, "").trim(),
+        hospital_ownership: _firstColumn[9].replace(/\"/g, "").trim(),
+        emergency_services: _firstColumn[10].replace(/\"/g, "").trim(),
+        meets_criteria_for_meaningful_use_of_ehrs: _firstColumn[11].replace(/\"/g, "").trim(),
+        hospital_overall_rating: _firstColumn[12].replace(/\"/g, "").trim(),
+        hospital_overall_rating_footnote: _firstColumn[13].replace(/\"/g, "").trim(),
+        mortality_national_comparison: _firstColumn[14].replace(/\"/g, "").trim(),
+        mortality_national_comparison_footnote: _firstColumn[15].replace(/\"/g, "").trim(),
+        geocoded_column: _firstColumn["28"].substring(6).replace(/\"/g, "").trim(),
      });  
   }
   
