@@ -68,12 +68,12 @@ console.log("This is working!");
         dataType: tableau.dataTypeEnum.string,
       },
       {
-        id: "mortality_national_comparison_footnote",
-        dataType: tableau.dataTypeEnum.string,
+        id: "geocoded_column",
+        dataType: tableau.geographicRoleEnum.zip_code_postcode,
       },
       {
-        id: "geocoded_column",
-        dataType: tableau.platformBuildNumber.string,
+        id: "mortality_national_comparison_footnote",
+        dataType: tableau.dataTypeEnum.string,
       },
     ];
 
@@ -111,8 +111,8 @@ console.log("This is working!");
             hospital_overall_rating: resp[i].hospital_overall_rating,
             hospital_overall_rating_footnote: resp[i].hospital_overall_rating_footnote,
             mortality_national_comparison: resp[i].mortality_national_comparison,
-            mortality_national_comparison_footnote: resp[i].mortality_national_comparison_footnote,
             geocoded_column: resp[i].geocoded_column,
+            mortality_national_comparison_footnote: resp[i].mortality_national_comparison_footnote,
          });
         }
         table.appendRows(tableData);

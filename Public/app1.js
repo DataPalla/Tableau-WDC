@@ -120,9 +120,12 @@ function readCSVFile(response) {
         _firstColumn[j] = _firstColumn[j].replace(/\"/g, "");
       }
      }
-     if((_firstColumn[28].includes("",1) != 0) || (_firstColumn[j]!== undefined)){
-      _firstColumn[28] = _firstColumn["28"].substring(6).replace(/\"/g, "").trim();
+     if(_firstColumn.length>1){
+      if((_firstColumn[28].includes("",1) != 0) || (_firstColumn[j]!== undefined)){
+        _firstColumn[28] = _firstColumn["28"].substring(6).replace(/\"/g, "").trim();
+       }
      }
+    
 
       tableData.push({
         provider_id:_firstColumn[0],
