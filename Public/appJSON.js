@@ -1,5 +1,8 @@
 
-  
+//Author: Sai Sandeep Palla
+//Date: Nov 15 2020
+//Usage: Web Data Connector to from General Hospital information data (API endpoint - CSV output) into Tableau.
+
 console.log("This is working!");
 
 (function () {
