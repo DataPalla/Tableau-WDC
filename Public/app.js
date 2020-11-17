@@ -117,7 +117,7 @@ function readCSVFile(response) {
      //Do your stuff
      for( var j =0; j < _firstColumn.length; j++ ){
       if(_firstColumn[i].includes("") != -1){
-        _firstColumn[i] = _firstColumn[0].replace(/\"/g, "");
+        _firstColumn[i] = _firstColumn[i].replace(/\"/g, "");
       }
      }
      if(_firstColumn[28].includes("") != -1){
