@@ -73,7 +73,7 @@ console.log("This is working!");
       },
       {
         id: "geocoded_column",
-        dataType: tableau.password.object,
+        dataType: tableau.platformBuildNumber.string,
       },
     ];
 
