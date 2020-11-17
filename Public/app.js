@@ -116,11 +116,11 @@ function readCSVFile(response) {
      var _firstColumn = lines[i].split(",");     //First column (Split on the separator!)
      //Do your stuff
      for( var j =0; j < _firstColumn.length; j++ ){
-      if(_firstColumn[j].includes("",1) != 0){
+      if((_firstColumn[j].includes("",1) != 0) || (_firstColumn[j]!== undefined)){
         _firstColumn[j] = _firstColumn[j].replace(/\"/g, "");
       }
      }
-     if(_firstColumn[28].includes("",1) != 0){
+     if((_firstColumn[28].includes("",1) != 0) || (_firstColumn[j]!== undefined)){
       _firstColumn[28] = _firstColumn["28"].substring(6).replace(/\"/g, "").trim();
      }
 
