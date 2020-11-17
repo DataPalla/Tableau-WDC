@@ -113,7 +113,7 @@ function readCSVFile(response) {
   var lines = response.split("\n");
   let tableData = [];
   for (var i = 0; i < lines.length; i++) {
-     var _firstColumn = lines[i].split(",");     //First column (Split on the separator!)
+     var _firstColumn = lines[i].split(",").replace(/\"/g, "");     //First column (Split on the separator!)
      //Do your stuff
       tableData.push({
         provider_id: _firstColumn[0],
