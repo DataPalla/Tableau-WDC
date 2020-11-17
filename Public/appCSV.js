@@ -109,12 +109,11 @@ function getData() {
 }
 
 function readCSVFile(response) {
-  var table;
   var lines = response.split("\n");
   let tableData = [];
-  for (var i = 1; i < lines.length; i++) {
-     var _firstColumn = lines[i].split(",");     //First column (Split on the separator!)
-     //Do your stuff
+  for (var i = 1; i < lines.length; i++) 
+     {
+     var _firstColumn = lines[i].split(","); 
      for( var j =0; j < _firstColumn.length; j++ ){
       if((_firstColumn[j].includes("",1) != 0) || (_firstColumn[j]!== undefined)){
         _firstColumn[j] = _firstColumn[j].replace(/\"/g, "");
