@@ -94,7 +94,7 @@ console.log("This is working!");
     var i = 0;
 
     $.getJSON(
-      "https://data.medicare.gov/resource/xubh-q36u.json",
+      "https://data.cms.gov/provider-data/api/1/metastore/schemas/dataset/items/xubh-q36u",
       function (resp) {
         // Iterate over the JSON object
         for (i = 0, len = resp.length; i < len; i++) {
